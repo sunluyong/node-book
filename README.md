@@ -6,7 +6,7 @@
 
 1. 初识 Node.js
 
-    1.1 Node.js 是什么
+    1.1 [Node.js 是什么](https://github.com/Samaritan89/node-book/blob/master/1.1.md)
 
     1.2 模块系统
 
