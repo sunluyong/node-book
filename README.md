@@ -8,11 +8,11 @@
 
     1.1 [Node.js 是什么](https://github.com/Samaritan89/node-book/blob/master/1.1.md)
 
-    1.2 模块系统
+    1.2 [模块系统](https://github.com/Samaritan89/node-book/blob/master/1.2.md)
 
-    1.3 调试
+    1.3 [调试](https://github.com/Samaritan89/node-book/blob/master/1.3.md)
 
-    1.4 NPM & package.json
+    1.4 [NPM & package.json](https://github.com/Samaritan89/node-book/blob/master/1.4.md)
 
 2. 基础 API
 
