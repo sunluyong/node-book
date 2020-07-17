@@ -1,0 +1,113 @@
+# API 风格
+
+Node.js 对文件、文件夹读写操作主要靠内置的 fs 模块
+```javascript
+const fs = require('fs');
+```
+fs 模块提供了几种不同调用风格的 API 支持文件读写，fs.stat 方法可以获取文件的基本信息，下面示例展示了不同风格 API 调用 fs.stat 方法
+<a name="HgtEH"></a>
+## callback 风格
+Node.js 默认的异步操作是 callback 风格 `callback(err, returnValue)`
+
+1. err: 如果程序处理出现异常，错误信息放在回调函数的第一个参数，如果没有错误 err 为 null
+1. returnValue：程序正常处理完成后结果放在回调函数第二个参数
+```javascript
+const fs = require('fs');
+
+fs.stat('.', (err, stats) => {
+  if(err) {
+  	// 处理错误。
+  } else {
+  	 // 使用 stats
+  }
+});
+```
+<a name="ts4At"></a>
+## fs promise API
+fs.promises API 提供了一组和 callback 风格对应的方法，返回 Promise 对象而不使用回调，避免出现 callback 嵌套的回调地狱问题<br />
+<br />API 可通过 `require('fs').promises` 或 `require('fs/promises')`访问
+> require('fs/promises') v14 后可用
+
+```javascript
+const fs = require('fs').promises;
+// const fs = require('fs/promises');
+
+fs.stat('.').then(stats => {
+  // 使用 stats
+}).catch(error => {
+  // 处理错误
+});
+```
+<a name="KjFwh"></a>
+## promisify
+Node.js 使用回调风格一方面是因为性能原因，一方面是因为 Node.js 诞生的时候 Promise 规范还没有制定，在 Promise 规范制定后 Node.js 通过内置模块 util 提供的 `promisify` 方法可以把所有标准 callback 风格方法转成 promise 风格方法
+```javascript
+const util = require('util');
+const fs = require('fs');
+
+const stat = util.promisify(fs.stat);
+stat('.').then(stats => {
+  // 使用 stats
+}).catch(error => {
+  // 处理错误
+});
+```
+<a name="8ByWs"></a>
+## 同步方法
+很多时候需要读写文件后才能进行某些操作，在没有性能问题的场景可以使用 fs 提供的同步函数来降低代码复杂度<br />fs 为大部分方法提供了一个同步版本，命名规则是方法名称后面添加 `Sync` ，比如 fs.readFile 和 fs.readFileSync，stat 方法也有对应的同步版本
+```javascript
+const fs = require('fs');
+try {
+	const stats = fs.statSync('.');
+  // 使用 stats
+} catch(error) {
+	// 处理错误
+}
+```
+<a name="b63GW"></a>
+## stat
+上面例子简单使用过 fs.stat 方法获取文件基本信息，如果打印 stats 对象可以得到文件基本属性
+```
+Stats {
+  dev: 16777220,
+  mode: 16877,
+  nlink: 3,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+  blksize: 4096,
+  ino: 4301278483,
+  size: 96,
+  blocks: 0,
+  atimeMs: 1588483554315.173,
+  mtimeMs: 1588483370684.5703,
+  ctimeMs: 1588483370684.5703,
+  birthtimeMs: 1588483342193.8625,
+  atime: 2020-05-03T05:25:54.315Z,
+  mtime: 2020-05-03T05:22:50.685Z,
+  ctime: 2020-05-03T05:22:50.685Z,
+  birthtime: 2020-05-03T05:22:22.194Z
+}
+```
+stats 对象还提供了几个非常有用的属性、方法获取文件的更多信息，比较常用的有
+
+1. stats.isDirectory()：判断文件是否是个文件夹
+1. stats.isFile()：判断文件是否是普通文件
+1. stats.isSymbolicLink()：判断文件是否是软链接
+1. stats.size：获取文件字节数
+
+
+
+```javascript
+const fs = require('fs');
+
+fs.stat('.', (err, stats) => {
+  if(!err) {
+    console.log(stats);
+    console.log(stats.isFile());
+    console.log(stats.size);
+  }
+});
+```
+
+
