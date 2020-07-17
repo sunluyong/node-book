@@ -26,17 +26,17 @@
 
 3. 文件操作
 
-    3.1 API 风格
+    3.1 [API 风格](https://github.com/Samaritan89/node-book/blob/master/3.1.md)
 
-    3.2 文件读取
+    3.2 [文件读取](https://github.com/Samaritan89/node-book/blob/master/3.2.md)
 
-    3.3 文件写入
+    3.3 [文件写入](https://github.com/Samaritan89/node-book/blob/master/3.3.md)
 
-    3.4 文件夹操作
+    3.4 [文件夹操作](https://github.com/Samaritan89/node-book/blob/master/3.4.md)
 
-    3.5 监视文件变化
+    3.5 [监视文件变化](https://github.com/Samaritan89/node-book/blob/master/3.5.md)
 
-    3.6 其它常用 API
+    3.6 [其它常用 API](https://github.com/Samaritan89/node-book/blob/master/3.6.md)
 
 4. Buffer 和 Stream
 
