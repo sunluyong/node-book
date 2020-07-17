@@ -40,15 +40,15 @@
 
 4. Buffer 和 Stream
 
-    4.1 Buffer
+    4.1 [Buffer](https://github.com/Samaritan89/node-book/blob/master/4.1.md)
 
-    4.2 初识 Stream
+    4.2 [初识 Stream](https://github.com/Samaritan89/node-book/blob/master/4.2.md)
 
-    4.3 可读流
+    4.3 [可读流](https://github.com/Samaritan89/node-book/blob/master/4.3.md)
 
-    4.4 可写流
+    4.4 [可写流](https://github.com/Samaritan89/node-book/blob/master/4.4.md)
 
-    4.5 双工流
+    4.5 [双工流](https://github.com/Samaritan89/node-book/blob/master/4.5.md)
 
 5. Web 应用
 
