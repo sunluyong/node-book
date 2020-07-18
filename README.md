@@ -74,7 +74,7 @@
     
     5.11 [多进程 & Node.js 实现](https://github.com/Samaritan89/node-book/blob/master/5.1.md)
 
-6. 企业级 Web 框架 egg.js](https://github.com/Samaritan89/node-book/blob/master/6.1.md)
+6. 企业级 Web 框架 egg.js
     
     6.1 [egg.js 简介](https://github.com/Samaritan89/node-book/blob/master/6.1.md)
     
